@@ -1,6 +1,6 @@
 {
-  "slug": "AdSynth-trigger_burst",
-  "name": "Burst",
+  "slug": "AdSynth",
+  "name": "AdSynth",
   "version": "1.0.0",
   "license": "wtfpl",
   "brand": "AdSynth",
@@ -16,9 +16,18 @@
     {
       "slug": "triggerburst",
       "name": "Trigger Burst",
-      "description": "",
+      "description": "Generates triggers with fixed or CV modulated frequency x3, then outputs it sum",
       "tags": [
         "Clock generator"
+      ]
+    },
+    {
+      "slug": "4xVCA",
+      "name": "4xVCA",
+      "description": "Quad VCA",
+      "tags": [
+        "VCA",
+        "Dual"
       ]
     }
   ]
