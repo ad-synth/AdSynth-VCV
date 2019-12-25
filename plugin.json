@@ -29,6 +29,24 @@
         "VCA",
         "Dual"
       ]
+    },
+    {
+      "slug": "mult8",
+      "name": "mult8",
+      "description": "",
+      "tags": [
+        "multiple",
+        "utility"
+      ]
+    },
+    {
+      "slug": "2mult4",
+      "name": "2mult4",
+      "description": "",
+      "tags": [
+        "multiple",
+        "utility"
+      ]
     }
   ]
 }
