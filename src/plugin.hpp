@@ -12,3 +12,4 @@ extern Model* modelTriggerburst;
 extern Model* model_4xVCA;
 extern Model* modelMult8;
 extern Model* model_2mult4;
+extern Model* modelAchtung;

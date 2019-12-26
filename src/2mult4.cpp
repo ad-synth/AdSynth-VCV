@@ -33,7 +33,7 @@ struct _2mult4 : Module {
 			output[i] = input[0];
 			outputs[OUT_OUTPUT + i].setVoltage(output[i]);
 		}
-		for (int i = 5; i < 8; i++) {
+		for (int i = 4; i < 8; i++) {
 			input[1] = inputs[IN_INPUT + 1].getVoltage();
 			output[i] = input[1];
 			outputs[OUT_OUTPUT + i].setVoltage(output[i]);
