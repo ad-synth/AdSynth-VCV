@@ -23,6 +23,15 @@ struct AdsynthSmallKnob : SVGKnob {
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/AdsynthSmallKnob.svg")));
 	}
 };
+struct AdsynthTrimpot : SVGKnob {
+	AdsynthTrimpot() {
+		box.size = Vec(60, 60);
+		minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/AdsynthTrimpot.svg")));
+	}
+};
 
 struct AdsynthJack : SVGPort {
 	AdsynthJack() {
