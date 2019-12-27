@@ -45,16 +45,16 @@ struct Mult8Widget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.16, 17.5)), module, Mult8::IN_INPUT));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 17.5)), module, Mult8::IN_INPUT));
 
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 32.494)), module, Mult8::OUT_OUTPUT +0));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 43.255)), module, Mult8::OUT_OUTPUT + 1));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 54.016)), module, Mult8::OUT_OUTPUT + 2));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 64.777)), module, Mult8::OUT_OUTPUT + 3));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 75.539)), module, Mult8::OUT_OUTPUT + 4));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 86.3)), module, Mult8::OUT_OUTPUT + 5));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 97.061)), module, Mult8::OUT_OUTPUT + 6));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 107.822)), module, Mult8::OUT_OUTPUT + 7));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 32.494)), module, Mult8::OUT_OUTPUT +0));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 43.255)), module, Mult8::OUT_OUTPUT + 1));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 54.016)), module, Mult8::OUT_OUTPUT + 2));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 64.777)), module, Mult8::OUT_OUTPUT + 3));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 75.539)), module, Mult8::OUT_OUTPUT + 4));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 86.3)), module, Mult8::OUT_OUTPUT + 5));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 97.061)), module, Mult8::OUT_OUTPUT + 6));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 107.822)), module, Mult8::OUT_OUTPUT + 7));
 	}
 };
 

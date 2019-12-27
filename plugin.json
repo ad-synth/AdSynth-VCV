@@ -22,15 +22,6 @@
       ]
     },
     {
-      "slug": "4xVCA",
-      "name": "4xVCA",
-      "description": "Quad VCA",
-      "tags": [
-        "VCA",
-        "Dual"
-      ]
-    },
-    {
       "slug": "mult8",
       "name": "mult8",
       "description": "",
@@ -49,10 +40,22 @@
       ]
     },
     {
-      "slug": "achtung",
-      "name": "achtung",
+      "slug": "Logic",
+      "name": "Logic",
       "description": "",
-      "tags": []
+      "tags": [
+        "logic",
+        "utility"
+      ]
+    },
+    {
+      "slug": "5xVCA",
+      "name": "5xVCA",
+      "description": "5x linear VCA",
+      "tags": [
+        "attenuator",
+        "vca"
+      ]
     }
   ]
 }

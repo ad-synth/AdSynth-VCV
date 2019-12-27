@@ -53,17 +53,17 @@ struct _2mult4Widget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.16, 17.5)), module, _2mult4::IN_INPUT+0));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(10.16, 72.098)), module, _2mult4::IN_INPUT+1));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 17.5)), module, _2mult4::IN_INPUT+0));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 72.098)), module, _2mult4::IN_INPUT+1));
 
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 30.215)), module, _2mult4::OUT_OUTPUT+0));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 38.963)), module, _2mult4::OUT_OUTPUT+1));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 47.712)), module, _2mult4::OUT_OUTPUT+2));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 56.46)), module, _2mult4::OUT_OUTPUT+3));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 84.715)), module, _2mult4::OUT_OUTPUT+4));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 93.463)), module, _2mult4::OUT_OUTPUT+5));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 102.212)), module, _2mult4::OUT_OUTPUT+6));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(10.16, 110.96)), module, _2mult4::OUT_OUTPUT+7));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 30.215)), module, _2mult4::OUT_OUTPUT+0));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 38.963)), module, _2mult4::OUT_OUTPUT+1));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 47.712)), module, _2mult4::OUT_OUTPUT+2));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 56.46)), module, _2mult4::OUT_OUTPUT+3));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 84.715)), module, _2mult4::OUT_OUTPUT+4));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 93.463)), module, _2mult4::OUT_OUTPUT+5));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 102.212)), module, _2mult4::OUT_OUTPUT+6));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 110.96)), module, _2mult4::OUT_OUTPUT+7));
 	}
 };
 
