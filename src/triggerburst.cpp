@@ -92,7 +92,6 @@ struct Triggerburst : Module {
 
 		if (phase1 >= 0.5f) {
 			pulseGenerators[0].trigger(1e-3f);
-
 			phase1 -= 1.f;
 		}
 		if (phase2 >= 0.5f) {

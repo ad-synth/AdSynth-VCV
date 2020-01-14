@@ -1,7 +1,7 @@
 #include "plugin.hpp"
 
 
-struct _2mult4 : Module {
+struct Adsynth_2mult4 : Module {
 	enum ParamIds {
 		NUM_PARAMS
 	};
@@ -17,7 +17,7 @@ struct _2mult4 : Module {
 		NUM_LIGHTS
 	};
 
-	_2mult4() {
+	Adsynth_2mult4() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 	}
 
@@ -43,8 +43,8 @@ struct _2mult4 : Module {
 
 };
 
-struct _2mult4Widget : ModuleWidget {
-	_2mult4Widget(_2mult4* module) {
+struct Adsynth_2mult4Widget : ModuleWidget {
+	Adsynth_2mult4Widget(Adsynth_2mult4* module) {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/2mult4.svg")));
 
@@ -53,19 +53,19 @@ struct _2mult4Widget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 17.5)), module, _2mult4::IN_INPUT+0));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 72.098)), module, _2mult4::IN_INPUT+1));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 17.5)), module, Adsynth_2mult4::IN_INPUT+0));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 72.098)), module, Adsynth_2mult4::IN_INPUT+1));
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 30.215)), module, _2mult4::OUT_OUTPUT+0));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 38.963)), module, _2mult4::OUT_OUTPUT+1));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 47.712)), module, _2mult4::OUT_OUTPUT+2));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 56.46)), module, _2mult4::OUT_OUTPUT+3));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 84.715)), module, _2mult4::OUT_OUTPUT+4));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 93.463)), module, _2mult4::OUT_OUTPUT+5));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 102.212)), module, _2mult4::OUT_OUTPUT+6));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 110.96)), module, _2mult4::OUT_OUTPUT+7));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 30.215)), module, Adsynth_2mult4::OUT_OUTPUT+0));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 38.963)), module, Adsynth_2mult4::OUT_OUTPUT+1));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 47.712)), module, Adsynth_2mult4::OUT_OUTPUT+2));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 56.46)), module, Adsynth_2mult4::OUT_OUTPUT+3));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 84.715)), module, Adsynth_2mult4::OUT_OUTPUT+4));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 93.463)), module, Adsynth_2mult4::OUT_OUTPUT+5));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 102.212)), module, Adsynth_2mult4::OUT_OUTPUT+6));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 110.96)), module, Adsynth_2mult4::OUT_OUTPUT+7));
 	}
 };
 
 
-Model* model_2mult4 = createModel<_2mult4, _2mult4Widget>("2mult4");
+Model* modelAdsynth_2mult4 = createModel<Adsynth_2mult4, Adsynth_2mult4Widget>("Adsynth_2mult4");

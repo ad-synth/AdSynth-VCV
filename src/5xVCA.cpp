@@ -1,7 +1,7 @@
 #include "plugin.hpp"
 
 
-struct _5xVCA : Module {
+struct Adsynth_5xVCA : Module {
 	enum ParamIds {
 		ENUMS(KNOB_PARAM, 5),
 		NUM_PARAMS
@@ -19,7 +19,7 @@ struct _5xVCA : Module {
 		NUM_LIGHTS
 	};
 
-	_5xVCA() {
+	Adsynth_5xVCA() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 		for (int i = 0; i < 5; i++) {
 			configParam(KNOB_PARAM + i, 0.f, 1.f, 0.f, string::f("Ch %d gain", i + 1), "%", 0, 100);
@@ -53,8 +53,8 @@ struct _5xVCA : Module {
 
 
 
-struct _5xVCAWidget : ModuleWidget {
-	_5xVCAWidget(_5xVCA* module) {
+struct Adsynth_5xVCAWidget : ModuleWidget {
+	Adsynth_5xVCAWidget(Adsynth_5xVCA* module) {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/5xVCA.svg")));
 
@@ -63,30 +63,30 @@ struct _5xVCAWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 19.7)), module, _5xVCA::KNOB_PARAM+0));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 41.2)), module, _5xVCA::KNOB_PARAM+1));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 62.7)), module, _5xVCA::KNOB_PARAM+2));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 84.2)), module, _5xVCA::KNOB_PARAM+3));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 105.7)), module, _5xVCA::KNOB_PARAM+4));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 19.7)), module, Adsynth_5xVCA::KNOB_PARAM+0));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 41.2)), module, Adsynth_5xVCA::KNOB_PARAM+1));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 62.7)), module, Adsynth_5xVCA::KNOB_PARAM+2));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 84.2)), module, Adsynth_5xVCA::KNOB_PARAM+3));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(29.448, 105.7)), module, Adsynth_5xVCA::KNOB_PARAM+4));
 
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 19.7)), module, _5xVCA::IN_INPUT+0));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 19.7)), module, _5xVCA::CV_INPUT+0));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 41.2)), module, _5xVCA::IN_INPUT+1));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 41.2)), module, _5xVCA::CV_INPUT+1));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 62.7)), module, _5xVCA::IN_INPUT+2));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 62.7)), module, _5xVCA::CV_INPUT+2));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 84.2)), module, _5xVCA::IN_INPUT+3));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 84.2)), module, _5xVCA::CV_INPUT+3));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 105.7)), module, _5xVCA::IN_INPUT+4));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 105.7)), module, _5xVCA::CV_INPUT+4));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 19.7)), module, Adsynth_5xVCA::IN_INPUT+0));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 19.7)), module, Adsynth_5xVCA::CV_INPUT+0));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 41.2)), module, Adsynth_5xVCA::IN_INPUT+1));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 41.2)), module, Adsynth_5xVCA::CV_INPUT+1));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 62.7)), module, Adsynth_5xVCA::IN_INPUT+2));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 62.7)), module, Adsynth_5xVCA::CV_INPUT+2));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 84.2)), module, Adsynth_5xVCA::IN_INPUT+3));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 84.2)), module, Adsynth_5xVCA::CV_INPUT+3));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8.0, 105.7)), module, Adsynth_5xVCA::IN_INPUT+4));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(17.967, 105.7)), module, Adsynth_5xVCA::CV_INPUT+4));
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 19.7)), module, _5xVCA::OUT_OUTPUT+0));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 41.2)), module, _5xVCA::OUT_OUTPUT+1));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 62.7)), module, _5xVCA::OUT_OUTPUT+2));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 84.2)), module, _5xVCA::OUT_OUTPUT+3));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 105.7)), module, _5xVCA::OUT_OUTPUT+4));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 19.7)), module, Adsynth_5xVCA::OUT_OUTPUT+0));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 41.2)), module, Adsynth_5xVCA::OUT_OUTPUT+1));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 62.7)), module, Adsynth_5xVCA::OUT_OUTPUT+2));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 84.2)), module, Adsynth_5xVCA::OUT_OUTPUT+3));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(42.347, 105.7)), module, Adsynth_5xVCA::OUT_OUTPUT+4));
 	}
 };
 
 
-Model* model_5xVCA = createModel<_5xVCA, _5xVCAWidget>("5xVCA");
+Model* modelAdsynth_5xVCA = createModel<Adsynth_5xVCA, Adsynth_5xVCAWidget>("Adsynth_5xVCA");

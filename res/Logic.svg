@@ -50,13 +50,13 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="9.9935925"
-     inkscape:cx="20.417036"
-     inkscape:cy="334.57523"
+     inkscape:zoom="1.7666343"
+     inkscape:cx="181.71655"
+     inkscape:cy="252.39375"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
-     inkscape:window-width="1827"
+     inkscape:window-width="1850"
      inkscape:window-height="1057"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -322,6 +322,13 @@
        orientation="1,0"
        id="guide5908"
        inkscape:locked="false" />
+    <sodipodi:guide
+       position="6.0000002,74.460001"
+       orientation="1,0"
+       id="guide4631"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -766,7 +773,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="components"
-     style="display:inline">
+     style="display:none">
     <circle
        style="display:inline;opacity:1;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:0.39999998;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path4623"
@@ -842,5 +849,47 @@
        cy="39"
        r="1.7984338"
        inkscape:label="TRESHOLD" />
+    <circle
+       style="opacity:0.97000002;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path4629"
+       cx="6"
+       cy="54.040001"
+       r="1"
+       inkscape:label="LEDOR" />
+    <circle
+       style="display:inline;opacity:0.97000002;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path4629-9"
+       cx="6"
+       cy="64.624001"
+       r="1"
+       inkscape:label="LEDNOR" />
+    <circle
+       style="display:inline;opacity:0.97000002;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path4629-9-9"
+       cx="6"
+       cy="75.208"
+       r="1"
+       inkscape:label="LEDAND" />
+    <circle
+       style="display:inline;opacity:0.97000002;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path4629-9-9-9"
+       cx="6"
+       cy="85.792"
+       r="1"
+       inkscape:label="LEDNAND" />
+    <circle
+       style="display:inline;opacity:0.97000002;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path4629-9-9-2"
+       cx="6"
+       cy="96.375999"
+       r="1"
+       inkscape:label="LEDMAX" />
+    <circle
+       style="display:inline;opacity:0.97000002;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path4629-9-9-2-0"
+       cx="6"
+       cy="106.96"
+       r="1"
+       inkscape:label="LEDMIN" />
   </g>
 </svg>

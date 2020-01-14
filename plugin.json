@@ -22,8 +22,8 @@
       ]
     },
     {
-      "slug": "mult8",
-      "name": "mult8",
+      "slug": "Adsynth_Mult8",
+      "name": "Mult8",
       "description": "",
       "tags": [
         "multiple",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "slug": "2mult4",
+      "slug": "Adsynth_2mult4",
       "name": "2mult4",
       "description": "",
       "tags": [
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "slug": "Logic",
+      "slug": "Adsynth_Logic",
       "name": "Logic",
       "description": "",
       "tags": [
@@ -49,13 +49,31 @@
       ]
     },
     {
-      "slug": "5xVCA",
+      "slug": "Adsynth_5xVCA",
       "name": "5xVCA",
       "description": "5x linear VCA",
       "tags": [
         "attenuator",
         "vca"
       ]
+    },
+    {
+      "slug": "Adsynth_Miniseq",
+      "name": "Miniseq",
+      "description": "8 step sequencer",
+      "tags": []
+    },
+    {
+      "slug": "Adsynth_Offset",
+      "name": "Offset",
+      "description": "DC offset",
+      "tags": []
+    },
+    {
+      "slug": "Adsynth_Stripmix",
+      "name": "Stripmix",
+      "description": "mixer",
+      "tags": []
     }
   ]
 }
