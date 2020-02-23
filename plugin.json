@@ -74,6 +74,52 @@
       "name": "Stripmix",
       "description": "mixer",
       "tags": []
+    },
+    {
+      "slug": "Adsynth_StereoVCA",
+      "name": "Stereo VCA",
+      "description": "4 x dual stereo linked VCA",
+      "tags": [
+        "VCA"
+      ]
+    },
+    {
+      "slug": "Adsynth_MiniLFO",
+      "name": "MiniLFO",
+      "description": "",
+      "tags": []
+    },
+    {
+      "slug": "Adsynth_MiniOSC",
+      "name": "MiniOSC",
+      "description": "",
+      "tags": []
+    },
+    {
+      "slug": "Adsynth_uPots",
+      "name": "uPots",
+      "description": "2hp Attenuators",
+      "tags": [
+        "vca"
+      ]
+    },
+    {
+      "slug": "Adsynth_uEnv",
+      "name": "uEnv",
+      "description": "2hp envelope generator",
+      "tags": []
+    },
+    {
+      "slug": "Adsynth_filter",
+      "name": "filter",
+      "description": "",
+      "tags": []
+    },
+    {
+      "slug": "Adsynth_VUvca",
+      "name": "VUvca",
+      "description": "",
+      "tags": []
     }
   ]
 }

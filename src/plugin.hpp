@@ -16,6 +16,14 @@ extern Model* modelAdsynth_5xVCA;
 extern Model* modelAdsynth_Miniseq;
 extern Model* modelAdsynth_Offset;
 extern Model* modelAdsynth_Stripmix;
+extern Model* modelAdsynth_StereoVCA;
+extern Model* modelAdsynth_MiniLFO;
+extern Model* modelAdsynth_MiniOSC;
+extern Model* modelAdsynth_uPots;
+extern Model* modelAdsynth_uEnv;
+extern Model* modelAdsynth_filter;
+extern Model* modelAdsynth_VUvca;
+
 
 struct AdsynthJack : SVGPort {
 	AdsynthJack() {
@@ -31,6 +39,16 @@ struct AdsynthSmallKnob : SVGKnob {
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthSmallKnob.svg")));
 	}
 };
+
+struct AdsynthKnobHugeRed : SVGKnob {
+	AdsynthKnobHugeRed() {
+		minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		shadow->visible = false;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthKnobHugeRed.svg")));
+	}
+};
+
 
 struct AdsynthBigKnob : SVGKnob {
 	AdsynthBigKnob() {
@@ -77,6 +95,18 @@ struct AdsynthSmallTriKnob : SVGKnob {
 	}
 };
 
+
+struct AdsynthTriKnobMini : SVGKnob {
+
+	AdsynthTriKnobMini() {
+		minAngle = -0.4 * M_PI;
+		maxAngle = 0.4 * M_PI;
+		Knob::snap = true;
+		shadow->visible = false;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthTriKnobMini.svg")));
+	}
+};
+
 struct AdsynthSwitch : SVGSwitch {
 
 	AdsynthSwitch() {
@@ -92,7 +122,7 @@ struct AdsynthButton : SVGSwitch {
 
 	AdsynthButton() {
 		momentary = false;
-		box.size = Vec(60, 60);
+		box.size = Vec(30, 30);
 		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthButton_0.svg")));
 		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthButton_1.svg")));
 		shadow->visible = false;
@@ -107,5 +137,21 @@ struct AdsynthGreenSeqButton : SVGSwitch {
 		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthGreenSeqButton_0.svg")));
 		addFrame(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthGreenSeqButton_1.svg")));
 
+	}
+};
+
+struct AdsynthVUtick : SvgKnob {
+	AdsynthVUtick() {
+		minAngle = -0.2 * M_PI;
+		maxAngle = 0.2 * M_PI;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthVUtick.svg")));
+	}
+};
+
+struct AdsynthFader : SvgSlider {
+	AdsynthFader() {
+		this->box.size = Vec(4, 30);
+		this->setBackgroundSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthSliederSlot.svg")));
+		this->setHandleSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthSliderHandle.svg")));
 	}
 };

@@ -16,7 +16,13 @@ void init(Plugin* p) {
 	p->addModel(modelAdsynth_Logic);
 	p->addModel(modelAdsynth_5xVCA);
 	p->addModel(modelAdsynth_Miniseq);
-	
+	p->addModel(modelAdsynth_StereoVCA);
+	p->addModel(modelAdsynth_MiniLFO);
+	p->addModel(modelAdsynth_MiniOSC);
+	p->addModel(modelAdsynth_uPots);
+	p->addModel(modelAdsynth_uEnv);
+	p->addModel(modelAdsynth_filter);
+	p->addModel(modelAdsynth_VUvca);
 
 
 	// Any other plugin initialization may go here.
