@@ -70,11 +70,9 @@ struct Adsynth_StripmixWidget : ModuleWidget {
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/stripmix.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(5.08, 75.451)), module, Adsynth_Stripmix::MODE_PARAM));
+		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(5.08, 78)), module, Adsynth_Stripmix::MODE_PARAM));
 
 		for (int i = 0; i < 4; i++)
 		{
@@ -83,8 +81,8 @@ struct Adsynth_StripmixWidget : ModuleWidget {
 			addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(8, 21 + i * 13)), module, Adsynth_Stripmix::ON_LIGHT + i));
 		}
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 93.5)), module, Adsynth_Stripmix::OUT_OUTPUT + 0));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 105.5)), module, Adsynth_Stripmix::OUT_OUTPUT + 1));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 97)), module, Adsynth_Stripmix::OUT_OUTPUT + 0));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 109)), module, Adsynth_Stripmix::OUT_OUTPUT + 1));
 	}
 };
 

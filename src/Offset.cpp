@@ -61,7 +61,7 @@ struct Adsynth_OffsetWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		for (int i = 0; i < 5; i++) {
-			addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(15.24, 25.7 + (i * 21.5))), module, Adsynth_Offset::KNOB_PARAM + i));
+			addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(14.24, 25.7 + (i * 21.5))), module, Adsynth_Offset::KNOB_PARAM + i));
 			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(6.0, 19.7 + (i * 21.5))), module, Adsynth_Offset::IN_INPUT + i));
 			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(23.98, 19.7 + (i * 21.5))), module, Adsynth_Offset::OUT_OUTPUT + i));
 		}

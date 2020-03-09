@@ -10,9 +10,11 @@ struct Adsynth_Miniseq : Module {
 		STEPS_PARAM,
 		RUN_PARAM,
 		LOOP_PARAM,
+		GATE_PARAM,
 		NUM_PARAMS
 	};
 	enum InputIds {
+		GATEPW_INPUT,
 		CLOCK_INPUT,
 		RESET_INPUT,
 		RUN_INPUT,
@@ -35,7 +37,9 @@ struct Adsynth_Miniseq : Module {
 
 	//variables=======================================================
 
-	bool runState = true;
+	bool runState = true,
+		eocCache = false;
+
 
 	int index = 0,
 		modeSwitch = 1,
@@ -46,8 +50,8 @@ struct Adsynth_Miniseq : Module {
 	dsp::SchmittTrigger gateInput;
 	dsp::SchmittTrigger resetInput;
 	dsp::SchmittTrigger runInput;
-	dsp::PulseGenerator internalClock;
-	dsp::PulseGenerator eocGate;
+	dsp::PulseGenerator internalClock, externalClock;
+	dsp::PulseGenerator eocGate, outputGate;
 
 	//functions=======================================================
 
@@ -61,7 +65,12 @@ struct Adsynth_Miniseq : Module {
 	}
 
 	void resetSequence() {
-		(modeSwitch == 2) ? index = seqLength - 1 : index = 0;
+		switch (modeSwitch) {
+		case 1: index = 0; direction = 1; break;
+		case 2: index = seqLength - 1; break;
+		case 3: index = 0; direction = 1; break;
+		}
+		//(modeSwitch == 2) ? index = seqLength - 1 : index = 0, direction = 1;
 	}
 	void stopSequence() {
 		runState = false;
@@ -69,7 +78,7 @@ struct Adsynth_Miniseq : Module {
 		resetSequence();
 	}
 	void muteOuts() {
-		outputs[GATE_OUTPUT].setVoltage(0.f);
+		outputGate.reset();
 		outputs[CV_OUTPUT].setVoltage(0.f);
 	}
 	void setModeLight() {
@@ -114,19 +123,25 @@ struct Adsynth_Miniseq : Module {
 		configParam(STEPS_PARAM, 2.f, 8.f, 8, "Step Count");
 		configParam(CLOCK_PARAM, 0.f, 10.f, 5, "Clock Rate");
 		configParam(RUN_PARAM, 0.f, 1.f, 1.f, "Run");
-		configParam(LOOP_PARAM, 0.f, 1.f, 1, "Loop / OnneShot");
+		configParam(LOOP_PARAM, 0.f, 1.f, 1, "Loop / OneShot");
+		configParam(GATE_PARAM, 0, 1, 1, "Gatelength");
 	}
 
 	void process(const ProcessArgs& args) override {
 
 		float
-			input = 10.f,
+			input = 10,			//output stage gain for all signals
 			out,
 			gain[8],
+			tempoMod = 0.1,		//clock tempo linear modifier
 			clockRate,
+			extClock,
 			trigger,
 			eoc,
-			modeParamValue;
+			modeParamValue,
+			gateOut,
+			gateLength = 0.1,  //in seconds, init value only
+			gatePW = params[GATE_PARAM].getValue();
 
 		bool
 			pendulum,
@@ -136,25 +151,24 @@ struct Adsynth_Miniseq : Module {
 			reset,
 			loop,
 			pulse;
-
-		//check parameters;
+		//fetch parameters;
 		
 		reset = resetInput.process(inputs[RESET_INPUT].getVoltage());
 		loop = params[LOOP_PARAM].getValue();
-
-		seqLength = std::round(params[STEPS_PARAM].getValue());
-		
+		seqLength = std::round(params[STEPS_PARAM].getValue());				
 		runButtonValue = params[RUN_PARAM].getValue();
 		runInValue = runInput.process(inputs[RUN_INPUT].getVoltage());
 		runState = runButtonValue || runInValue;
-		runState ? params[RUN_PARAM].setValue(10.f) : params[RUN_PARAM].setValue(0.f);
-		
+			
 		modeSwitch = std::round(params[DIR_PARAM].getValue());
+
 		if (inputs[MODE_INPUT].isConnected()) {
 			modeParamValue = inputs[MODE_INPUT].getVoltage();
 			modeSwitch += voltageToSwitch(modeParamValue);
 		}
 		else modeParamValue = 0;
+
+		//lights init
 
 		setModeLight();		
 		killActiveLights();
@@ -162,40 +176,63 @@ struct Adsynth_Miniseq : Module {
 
 		//generate internal clock signal
 		
-		clockRate = 0.1 * std::pow(2.f, params[CLOCK_PARAM].getValue());
+		clockRate = tempoMod * std::pow(2.f, params[CLOCK_PARAM].getValue());
 		clockPhase += clockRate * args.sampleTime;
 		
 		if (clockPhase >= 0.5f) {
-			internalClock.trigger(1e-8f);
+			internalClock.trigger(1e-6f);
+			externalClock.trigger(1e-3f);
 			clockPhase -= 1.f;
 		}
-
+		extClock = externalClock.process(args.sampleTime);
 		pulse = internalClock.process(args.sampleTime);
+		
 
-		//choose clock source
+		if (inputs[GATEPW_INPUT].isConnected()) {
+			gatePW += inputs[GATEPW_INPUT].getVoltage() / input;
+		}
+		gateLength = gatePW / clockRate;
+
+		//choosing clock source
 		
 		if (inputs[CLOCK_INPUT].isConnected()) {
 			trigger = gateInput.process(inputs[CLOCK_INPUT].getVoltage());
 			outputs[CLOCK_OUTPUT].setVoltage(inputs[CLOCK_INPUT].getVoltage());
+			
+			gateLength = 8; 
+
+			// if external clock is connected - max gatetime equals fixed 8 sec
+			// (bypasses gate param, sets permanent legato mode)
+			// todo: gatelength for ext clx
 		}
 		else {
 			trigger = pulse ? 10.f : 0.f;
-			outputs[CLOCK_OUTPUT].setVoltage(trigger);
+			outputs[CLOCK_OUTPUT].setVoltage(extClock);
 		}
 
+		runState += clampSafe(inputs[RUN_INPUT].getVoltage(), 0.f, 10.f);
+		runState ? params[RUN_PARAM].setValue(10.f) : params[RUN_PARAM].setValue(0.f);	//button light on/off
+
 		if (reset) resetSequence();
+
+		//check direction
+
+		switch (modeSwitch) {
+		case 1: direction = 1; pendulum = false; break;
+		case 2: direction = -1; pendulum = false; break;
+		case 3: pendulum = true; break;
+		default: direction = 1; pendulum = false; break;
+		}
+
+		if (trigger && eocCache) {
+			muteOuts();
+			eocCache = 0;
+		}
 
 		if (trigger && runState) {
 
 			killSeqLights();
 
-			//check direction
-			switch (modeSwitch) {
-			case 1: direction = 1; pendulum = false; break;
-			case 2: direction = -1; pendulum = false; break;
-			case 3: pendulum = true; break;
-			default: direction = 1; pendulum = false; break;
-			}
 			//process row
 
 			switchState = params[SWITCH_PARAM + index].getValue();
@@ -203,10 +240,10 @@ struct Adsynth_Miniseq : Module {
 
 			if (switchState) {
 				outCache = gain[index];
-				outputs[GATE_OUTPUT].setVoltage(10.f);
+				outputGate.trigger(gateLength);
 			}
 			else {
-				outputs[GATE_OUTPUT].setVoltage(0.f);
+				outputGate.reset();
 			}
 
 			out = input * outCache;
@@ -215,31 +252,32 @@ struct Adsynth_Miniseq : Module {
 			lights[LED_LIGHT + index].setSmoothBrightness(1.f, 5e3);
 
 			index += direction;
-
-			//check if on edge of sequence
-
-			if (pendulum) {
-				if (index <= 0 && direction == -1 && loop) direction = 1, eocGate.trigger(1e-3f);
-				if (index <= 0 && direction == -1 && !loop) direction = 1, eocGate.trigger(1e-3f);
-				if (index >= seqLength - 1 && direction == 1) direction = -1;
-			}
-			else {
-				if (index < 0) resetSequence(), eocGate.trigger(5e-3f);
-				if (index > seqLength-1) resetSequence(), eocGate.trigger(5e-3f);
-			}
 		}
 
 		eoc = eocGate.process(args.sampleTime) * 10.f;
 		outputs[EOC_OUTPUT].setVoltage(eoc);
+		
+		gateOut = input * outputGate.process(args.sampleTime);
+
+		outputs[GATE_OUTPUT].setVoltage(gateOut);
 
 		//one shot or loop
 
 		if (!loop && eoc) {
 			stopSequence();
+			eocCache++;
 		}
-		if (!runState) muteOuts();
-		// END OF TODO
-		// issue: in case of 
+		
+		//check if on edge of sequence
+
+		if (pendulum) {
+			if (index <= 0 && direction == -1) direction = 1, eocGate.trigger(1e-3f);
+			if (index >= seqLength - 1 && direction == 1) direction = -1;
+		}
+		else {
+			if (index < 0) resetSequence(), eocGate.trigger(5e-3f);
+			if (index > seqLength-1) resetSequence(), eocGate.trigger(5e-3f);
+		}
 	}
 };
 
@@ -253,7 +291,7 @@ struct Adsynth_MiniseqWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		const int jackTop = 97.2, jackBot = 109;
+		const int jackTop = 97, jackBot = 109;
 
 		for (int i = 0; i < 8; i++)
 		{
@@ -265,18 +303,20 @@ struct Adsynth_MiniseqWidget : ModuleWidget {
 
 		}
 
-		addParam(createParamCentered<AdsynthBigKnob>(mm2px(Vec(37.8, 20)), module, Adsynth_Miniseq::CLOCK_PARAM));
-		addParam(createParamCentered<AdsynthSmallSnapKnob>(mm2px(Vec(37.8, 40)), module, Adsynth_Miniseq::STEPS_PARAM));
-		
-		addParam(createParamCentered<AdsynthSmallTriKnob>(mm2px(Vec(37.8, 65)), module, Adsynth_Miniseq::DIR_PARAM));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(32.8, 60)), module, Adsynth_Miniseq::MODE_LIGHT + 0));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(37.8, 57)), module, Adsynth_Miniseq::MODE_LIGHT + 1));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(42.8, 60)), module, Adsynth_Miniseq::MODE_LIGHT + 2));
+		addParam(createParamCentered<AdsynthBigKnobRed>(mm2px(Vec(37.8, 22)), module, Adsynth_Miniseq::CLOCK_PARAM));
+		addParam(createParamCentered<AdsynthSmallSnapKnob>(mm2px(Vec(41.8, 47)), module, Adsynth_Miniseq::STEPS_PARAM));
+		addParam(createParamCentered<AdsynthKnobSmallTeal>(mm2px(Vec(32.8, 35)), module, Adsynth_Miniseq::GATE_PARAM));
 
-		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(31.8, 80)), module, Adsynth_Miniseq::RUN_PARAM));
-		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(42.8, 80)), module, Adsynth_Miniseq::LOOP_PARAM));
+		addParam(createParamCentered<AdsynthSmallTriKnob>(mm2px(Vec(37, 70.5)), module, Adsynth_Miniseq::DIR_PARAM));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(32, 62.5)), module, Adsynth_Miniseq::MODE_LIGHT + 0));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(37, 59.5)), module, Adsynth_Miniseq::MODE_LIGHT + 1));
+		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(42, 62.5)), module, Adsynth_Miniseq::MODE_LIGHT + 2));
+
+		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(31.8, 82.5)), module, Adsynth_Miniseq::RUN_PARAM));
+		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(42.8, 82.5)), module, Adsynth_Miniseq::LOOP_PARAM));
 
 
+		addInput(createInputCentered<AdsynthJackTeal>(mm2px(Vec(31.8, 44.5)), module, Adsynth_Miniseq::GATEPW_INPUT));
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8, jackTop)), module, Adsynth_Miniseq::CLOCK_INPUT));
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(8, jackBot)), module, Adsynth_Miniseq::RUN_INPUT));
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(19, jackTop)), module, Adsynth_Miniseq::RESET_INPUT));

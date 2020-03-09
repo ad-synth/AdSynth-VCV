@@ -15,7 +15,7 @@
    version="1.1"
    id="svg111794"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="AdsynthSmallKnob.svg">
+   sodipodi:docname="AdsynthKnobSmallTeal.svg">
   <defs
      id="defs111788" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.627417"
-     inkscape:cx="12.193056"
-     inkscape:cy="12.372629"
+     inkscape:zoom="16"
+     inkscape:cx="12.151386"
+     inkscape:cy="7.6646325"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -101,7 +101,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -112,7 +112,7 @@
      transform="translate(-168.09312,-67.39659)">
     <path
        sodipodi:type="star"
-       style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       style="opacity:1;fill:#247c76;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path4509"
        sodipodi:sides="18"
        sodipodi:cx="172.09312"
@@ -148,7 +148,7 @@
        sodipodi:nodetypes="cscccc" />
     <path
        inkscape:connector-curvature="0"
-       style="fill:#333333;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.35277775"
+       style="fill:#247c76;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.35277775"
        d="m 172.2261,68.243251 c -0.0427,-0.0086 -0.087,-0.02581 -0.13252,-0.02581 -0.0455,0 -0.0894,0.01962 -0.13344,0.02812 l -2.3e-4,3.20109 h 0.26596 z"
        id="path110600"
        sodipodi:nodetypes="cscccc" />

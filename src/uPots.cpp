@@ -3,16 +3,17 @@
 
 struct Adsynth_uPots : Module {
 	enum ParamIds {
-		ENUMS(KNOB_PARAM, 3),
+		ENUMS(KNOB_PARAM, 4),
 		NUM_PARAMS
 	};
 
 	enum InputIds {
-		ENUMS(IN_INPUT, 3),
+		ENUMS(IN_INPUT, 4),
+		ENUMS(CV_INPUT, 4),
 		NUM_INPUTS
 	};
 	enum OutputIds {
-		ENUMS(OUT_OUTPUT, 3),
+		ENUMS(OUT_OUTPUT, 4),
 		NUM_OUTPUTS
 	};
 	enum LightIds {
@@ -21,22 +22,30 @@ struct Adsynth_uPots : Module {
 
 	Adsynth_uPots() {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
-		configParam(KNOB_PARAM, 0.f, 1.f, 1.f, "Gain 1");
-		configParam(KNOB_PARAM, 0.f, 1.f, 1.f, "Gain 2");
-		configParam(KNOB_PARAM, 0.f, 1.f, 1.f, "Gain 3");
+		configParam(KNOB_PARAM + 0, 0.f, 1.f, 1.f, "Gain 1");
+		configParam(KNOB_PARAM + 1, 0.f, 1.f, 1.f, "Gain 2");
+		configParam(KNOB_PARAM + 2, 0.f, 1.f, 1.f, "Gain 3");
+		configParam(KNOB_PARAM + 3, 0.f, 1.f, 1.f, "Gain 4");
 	}
 
 	void process(const ProcessArgs& args) override {
-		for (int i = 0; i < 3; i++) {
-			float gain[3],
-				input[3],
-				out[3];
+		for (int i = 0; i < 4; i++) {
+			float gain[4],
+				cvInput[4],
+				input[4],
+				out[4];
 
+			if (inputs[CV_INPUT + i].isConnected()) {
+				cvInput[i] = clamp(inputs[CV_INPUT + i].getVoltage(), 0.f, 10.f);
+			}
+			else {
+				cvInput[i] = 10.f;
+			}
 			input[i] = inputs[IN_INPUT + i].getVoltage();
-			gain[i] = params[KNOB_PARAM + i].getValue();
+			gain[i] = cvInput[i] * params[KNOB_PARAM + i].getValue() / 10;
 
 			out[i] = input[i] * gain[i];
-			out[i] = clamp(out[i], -11.4f, 11.4f);
+			out[i] = clamp(out[i], -10.f, 10.f);
 			outputs[OUT_OUTPUT + i].setVoltage(out[i]);
 		}
 	}
@@ -53,17 +62,19 @@ struct Adsynth_uPotsWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 27.5)), module, Adsynth_uPots::KNOB_PARAM+0));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 52.641)), module, Adsynth_uPots::KNOB_PARAM+1));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 77.59)), module, Adsynth_uPots::KNOB_PARAM+2));
-
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 17.5)), module, Adsynth_uPots::IN_INPUT+0));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 42.5)), module, Adsynth_uPots::IN_INPUT+1));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 67.5)), module, Adsynth_uPots::IN_INPUT+2));
-
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 92.5)), module, Adsynth_uPots::OUT_OUTPUT+0));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 101.5)), module, Adsynth_uPots::OUT_OUTPUT+1));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 110.5)), module, Adsynth_uPots::OUT_OUTPUT+2));
+		for (int i = 0; i < 4; i++) {
+			addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(15.24, 22.5 + i * 12)), module, Adsynth_uPots::KNOB_PARAM + i));
+			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 22.5 + i * 12)), module, Adsynth_uPots::CV_INPUT + i));
+		}
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 72.5)), module, Adsynth_uPots::IN_INPUT + 0));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 84.5)), module, Adsynth_uPots::IN_INPUT+1));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 97)), module, Adsynth_uPots::IN_INPUT+2));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 109)), module, Adsynth_uPots::IN_INPUT+3));
+		
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 72.5)), module, Adsynth_uPots::OUT_OUTPUT + 0));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 84.5)), module, Adsynth_uPots::OUT_OUTPUT+1));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 97)), module, Adsynth_uPots::OUT_OUTPUT+2));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 109)), module, Adsynth_uPots::OUT_OUTPUT + 3));
 	}
 };
 

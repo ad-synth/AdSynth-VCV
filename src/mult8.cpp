@@ -41,14 +41,12 @@ struct Adsynth_Mult8Widget : ModuleWidget {
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/Mult8.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 17.5)), module, Adsynth_Mult8::IN_INPUT));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 17)), module, Adsynth_Mult8::IN_INPUT));
 
 		for (int i = 0; i < 8; i++) {
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 32.5 + 11*i)), module, Adsynth_Mult8::OUT_OUTPUT + i));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 32 + 11*i)), module, Adsynth_Mult8::OUT_OUTPUT + i));
 		}
 	}
 };

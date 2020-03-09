@@ -4,10 +4,8 @@
 
 using namespace rack;
 
-// Declare the Plugin, defined in plugin.cpp
 extern Plugin* pluginInstance;
 
-// Declare each Model, defined in each module source file
 extern Model* modelTriggerburst;
 extern Model* modelAdsynth_Mult8;
 extern Model* modelAdsynth_2mult4;
@@ -25,11 +23,25 @@ extern Model* modelAdsynth_filter;
 extern Model* modelAdsynth_VUvca;
 
 
+//-----jacks
+
 struct AdsynthJack : SVGPort {
 	AdsynthJack() {
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthJack.svg")));
 	}
 };
+struct AdsynthJackTeal : SVGPort {
+	AdsynthJackTeal() {
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthJackTeal.svg")));
+	}
+};
+struct AdsynthJackRed : SVGPort {
+	AdsynthJackRed() {
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthJackRed.svg")));
+	}
+};
+
+//-----knobs
 
 struct AdsynthSmallKnob : SVGKnob {
 	AdsynthSmallKnob() {
@@ -37,6 +49,38 @@ struct AdsynthSmallKnob : SVGKnob {
 		maxAngle = 0.83 * M_PI;
 		shadow->visible = false;
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthSmallKnob.svg")));
+	}
+};
+struct AdsynthKnobSmallRed : SVGKnob {
+	AdsynthKnobSmallRed() {
+		minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		shadow->visible = false;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthKnobSmallRed.svg")));
+	}
+};
+struct AdsynthKnobSmallTeal : SVGKnob {
+	AdsynthKnobSmallTeal() {
+		minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		shadow->visible = false;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthKnobSmallTeal.svg")));
+	}
+};
+struct AdsynthBigKnobRed : SVGKnob {
+	AdsynthBigKnobRed() {
+		minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		shadow->visible = false;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthBigKnobRed.svg")));
+	}
+};
+struct AdsynthBigKnobTeal : SVGKnob {
+	AdsynthBigKnobTeal() {
+		minAngle = -0.83 * M_PI;
+		maxAngle = 0.83 * M_PI;
+		shadow->visible = false;
+		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/components/AdsynthBigKnobTeal.svg")));
 	}
 };
 
@@ -107,6 +151,8 @@ struct AdsynthTriKnobMini : SVGKnob {
 	}
 };
 
+//-----buttons, switches
+
 struct AdsynthSwitch : SVGSwitch {
 
 	AdsynthSwitch() {
@@ -139,6 +185,8 @@ struct AdsynthGreenSeqButton : SVGSwitch {
 
 	}
 };
+
+//======experimental
 
 struct AdsynthVUtick : SvgKnob {
 	AdsynthVUtick() {
