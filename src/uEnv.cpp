@@ -163,21 +163,19 @@ struct Adsynth_uEnvWidget : ModuleWidget {
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/uEnv.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 15.5)), module, Adsynth_uEnv::ATTACK_PARAM));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 26.833)), module, Adsynth_uEnv::DECAY_PARAM));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 38.167)), module, Adsynth_uEnv::SUSTAIN_PARAM));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 17)), module, Adsynth_uEnv::ATTACK_PARAM));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 27.833)), module, Adsynth_uEnv::DECAY_PARAM));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 38.667)), module, Adsynth_uEnv::SUSTAIN_PARAM));
 		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 49.5)), module, Adsynth_uEnv::RELEASE_PARAM));
-		addParam(createParamCentered<AdsynthTriKnobMini>(mm2px(Vec(5.08, 60.5)), module, Adsynth_uEnv::MODE_PARAM));
+		addParam(createParamCentered<AdsynthTriKnobMini>(mm2px(Vec(5.08, 61.5)), module, Adsynth_uEnv::MODE_PARAM));
 
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 70.5)), module, Adsynth_uEnv::RESET_INPUT));
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 82.5)), module, Adsynth_uEnv::GATE_INPUT));
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 97.5)), module, Adsynth_uEnv::GATE_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 109.5)), module, Adsynth_uEnv::OUT_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 97)), module, Adsynth_uEnv::GATE_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 109)), module, Adsynth_uEnv::OUT_OUTPUT));
 	}
 };
 

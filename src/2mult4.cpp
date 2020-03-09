@@ -49,21 +49,19 @@ struct Adsynth_2mult4Widget : ModuleWidget {
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/2mult4.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 17.5)), module, Adsynth_2mult4::IN_INPUT+0));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(10.16, 72.098)), module, Adsynth_2mult4::IN_INPUT+1));
+		addInput(createInputCentered<AdsynthJackRed>(mm2px(Vec(5.08, 17)), module, Adsynth_2mult4::IN_INPUT+0));
+		addInput(createInputCentered<AdsynthJackTeal>(mm2px(Vec(5.08, 69)), module, Adsynth_2mult4::IN_INPUT+1));
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 30.215)), module, Adsynth_2mult4::OUT_OUTPUT+0));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 38.963)), module, Adsynth_2mult4::OUT_OUTPUT+1));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 47.712)), module, Adsynth_2mult4::OUT_OUTPUT+2));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 56.46)), module, Adsynth_2mult4::OUT_OUTPUT+3));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 84.715)), module, Adsynth_2mult4::OUT_OUTPUT+4));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 93.463)), module, Adsynth_2mult4::OUT_OUTPUT+5));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 102.212)), module, Adsynth_2mult4::OUT_OUTPUT+6));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(10.16, 110.96)), module, Adsynth_2mult4::OUT_OUTPUT+7));
+
+		float spacing = 9.5;
+		for (int i = 0; i < 4; i++) {
+			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 29.5 + i * spacing)), module, Adsynth_2mult4::OUT_OUTPUT + i));
+		}
+		for (int i = 4; i < 8; i++) {
+			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 80.5 + (i-4) * spacing)), module, Adsynth_2mult4::OUT_OUTPUT + i));
+		}
 	}
 };
 

@@ -7,7 +7,6 @@ Plugin* pluginInstance;
 void init(Plugin* p) {
 	pluginInstance = p;
 
-	// Add modules here
 	p->addModel(modelTriggerburst);
 	p->addModel(modelAdsynth_Mult8);
 	p->addModel(modelAdsynth_2mult4);
@@ -23,8 +22,4 @@ void init(Plugin* p) {
 	p->addModel(modelAdsynth_uEnv);
 	p->addModel(modelAdsynth_filter);
 	p->addModel(modelAdsynth_VUvca);
-
-
-	// Any other plugin initialization may go here.
-	// As an alternative, consider lazy-loading assets and lookup tables when your module is created to reduce startup times of Rack.
 }

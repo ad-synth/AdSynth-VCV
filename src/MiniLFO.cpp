@@ -122,11 +122,9 @@ struct Adsynth_MiniLFOWidget : ModuleWidget {
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/MiniLFO.svg")));
 
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(5.08, 18.5)), module, Adsynth_MiniLFO::COARSE_PARAM));
+		addParam(createParamCentered<AdsynthKnobSmallTeal>(mm2px(Vec(5.08, 18.5)), module, Adsynth_MiniLFO::COARSE_PARAM));
 		addParam(createParamCentered<AdsynthTrimpot>(mm2px(Vec(5.08, 28.5)), module, Adsynth_MiniLFO::PW_PARAM));
 		addParam(createParamCentered<AdsynthButton>(mm2px(Vec(5.08, 36)), module, Adsynth_MiniLFO::POLAR_PARAM));
 
@@ -136,8 +134,8 @@ struct Adsynth_MiniLFOWidget : ModuleWidget {
 
 		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 72.5)), module, Adsynth_MiniLFO::SINE_OUTPUT));
 		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 84.5)), module, Adsynth_MiniLFO::TRI_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 96.5)), module, Adsynth_MiniLFO::SAW_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 108.5)), module, Adsynth_MiniLFO::SQU_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 97)), module, Adsynth_MiniLFO::SAW_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 109)), module, Adsynth_MiniLFO::SQU_OUTPUT));
 	}
 };
 

@@ -32,7 +32,7 @@ struct Adsynth_MiniOSC : Module {
 		configParam(SEMI_PARAM, -12, 12, 0, "Semitones");
 		configParam(FINE_PARAM, -1, 1, 0, "Fine tune");
 		configParam(COARSE_PARAM, -5, 5, 0, "Coarse");
-		configParam(PWM_PARAM, 0, 1, 0.5, "Pulse Width", "%");
+		configParam(PWM_PARAM, 0, 2, 1, "Pulse Width", "%");
 	}
 	struct OSC {
 		float phase = 0.f,
@@ -82,10 +82,10 @@ struct Adsynth_MiniOSC : Module {
 			transform = -volt * 2 * (volt - 1.8)*(volt+2);
 			return transform;
 		}
-
+		//=========================todo: PWM behavior, find dem polynominals again
 		float analogPulse() {
 			float volt, transform;
-			volt = 20 - (40* sin(2 * M_PI * phase * (phase*pulseWidth+0.18)/2));
+			volt = 20 - (40* sin(2 * M_PI * phase * (phase*(pulseWidth+0.19))));
 			volt = clamp(volt, -1.f, 1.f);
 			transform = -volt * 1.3 * (volt - 2.2) * (volt + 2.2);
 			return transform;
@@ -112,11 +112,11 @@ struct Adsynth_MiniOSC : Module {
 			coarse = params[COARSE_PARAM].getValue(),
 			semi = params[SEMI_PARAM].getValue(),
 			fine = params[FINE_PARAM].getValue(),
-			pwm = params[PWM_PARAM].getValue()/2;
+			pwm = params[PWM_PARAM].getValue();
 
 		if (inputs[PITCH_INPUT].isConnected()) coarse += inputs[PITCH_INPUT].getVoltage()/12;
 		if (inputs[VOCT_INPUT].isConnected()) coarse += inputs[VOCT_INPUT].getVoltage();
-		if (inputs[PWM_INPUT].isConnected()) pwm += inputs[PWM_INPUT].getVoltage()/4;
+		if (inputs[PWM_INPUT].isConnected()) pwm += inputs[PWM_INPUT].getVoltage();
 		if (reset) oscillator.resetCycle();
 
 		oscillator.setBaseFrequency(coarse);
@@ -149,20 +149,20 @@ struct Adsynth_MiniOSCWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(10.16, 18.5)), module, Adsynth_MiniOSC::PWM_PARAM));
+		addParam(createParamCentered<AdsynthKnobSmallTeal>(mm2px(Vec(10.16, 18.5)), module, Adsynth_MiniOSC::PWM_PARAM));
 		addParam(createParamCentered<AdsynthTrimpot>(mm2px(Vec(10.16, 29.679)), module, Adsynth_MiniOSC::FINE_PARAM));
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(10.16, 38.76)), module, Adsynth_MiniOSC::SEMI_PARAM));
+		addParam(createParamCentered<AdsynthKnobSmallRed>(mm2px(Vec(10.16, 38.76)), module, Adsynth_MiniOSC::SEMI_PARAM));
 		addParam(createParamCentered<AdsynthSmallTriKnob>(mm2px(Vec(10.16, 52.5)), module, Adsynth_MiniOSC::COARSE_PARAM));
 
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 69.5)), module, Adsynth_MiniOSC::VOCT_INPUT));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(15.4, 69.5)), module, Adsynth_MiniOSC::SYNC_INPUT));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 81.5)), module, Adsynth_MiniOSC::PITCH_INPUT));
-		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(15.4, 81.5)), module, Adsynth_MiniOSC::PWM_INPUT));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 70.5)), module, Adsynth_MiniOSC::VOCT_INPUT));
+		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(15.4, 70.5)), module, Adsynth_MiniOSC::SYNC_INPUT));
+		addInput(createInputCentered<AdsynthJackRed>(mm2px(Vec(5.08, 82.5)), module, Adsynth_MiniOSC::PITCH_INPUT));
+		addInput(createInputCentered<AdsynthJackTeal>(mm2px(Vec(15.4, 82.5)), module, Adsynth_MiniOSC::PWM_INPUT));
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 96.5)), module, Adsynth_MiniOSC::SAW_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.4, 96.5)), module, Adsynth_MiniOSC::SINE_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 108.5)), module, Adsynth_MiniOSC::PULSE_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.4, 108.5)), module, Adsynth_MiniOSC::TRI_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 97)), module, Adsynth_MiniOSC::SAW_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.4, 97)), module, Adsynth_MiniOSC::SINE_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 109)), module, Adsynth_MiniOSC::PULSE_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.4, 109)), module, Adsynth_MiniOSC::TRI_OUTPUT));
 	}
 };
 

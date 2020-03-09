@@ -71,14 +71,17 @@ struct Adsynth_StereoVCAWidget : ModuleWidget {
 
 		for (int i = 0; i < 4; i++)
 		{
-			addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(14.74, 17.5 + i * 28)), module, Adsynth_StereoVCA::KNOB_PARAM +i));
+			int spacing = 26,
+				ytop = 19,
+				ybot = 31;
+			addParam(createParamCentered<AdsynthKnobSmallRed>(mm2px(Vec(14.24, ytop + i * spacing)), module, Adsynth_StereoVCA::KNOB_PARAM +i));
 
-			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(6.0, 17.5 + i * 28)), module, Adsynth_StereoVCA::INL_INPUT+i));
-			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(6.0, 26.5 + i * 28)), module, Adsynth_StereoVCA::INR_INPUT+i));
-			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(14.74, 26.5 + i * 28)), module, Adsynth_StereoVCA::CV_INPUT+i));
+			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, ytop + i * spacing)), module, Adsynth_StereoVCA::INL_INPUT+i));
+			addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, ybot + i * spacing)), module, Adsynth_StereoVCA::INR_INPUT+i));
+			addInput(createInputCentered<AdsynthJackRed>(mm2px(Vec(14.24, ybot + i * spacing)), module, Adsynth_StereoVCA::CV_INPUT+i));
 
-			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(24.112, 17.5 + i * 28)), module, Adsynth_StereoVCA::OUTL_OUTPUT+i));
-			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(23.98, 26.5 + i * 28)), module, Adsynth_StereoVCA::OUTR_OUTPUT+i));
+			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(24, ytop + i * spacing)), module, Adsynth_StereoVCA::OUTL_OUTPUT+i));
+			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(24, ybot + i * spacing)), module, Adsynth_StereoVCA::OUTR_OUTPUT+i));
 		}
 
 		
