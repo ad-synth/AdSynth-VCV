@@ -22,4 +22,5 @@ void init(Plugin* p) {
 	p->addModel(modelAdsynth_uEnv);
 	p->addModel(modelAdsynth_filter);
 	p->addModel(modelAdsynth_VUvca);
+	p->addModel(modelAdsynth_ClockDiv);
 }

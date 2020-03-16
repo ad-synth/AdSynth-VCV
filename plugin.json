@@ -110,6 +110,12 @@
       "tags": []
     },
     {
+      "slug": "Adsynth_ClockDiv",
+      "name": "ClockDiv",
+      "description": "Clock Divider",
+      "tags": []
+    },
+    {
       "slug": "Adsynth_filter",
       "name": "filter",
       "description": "",

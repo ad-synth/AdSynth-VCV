@@ -21,6 +21,7 @@ extern Model* modelAdsynth_uPots;
 extern Model* modelAdsynth_uEnv;
 extern Model* modelAdsynth_filter;
 extern Model* modelAdsynth_VUvca;
+extern Model* modelAdsynth_ClockDiv;
 
 
 //-----jacks
