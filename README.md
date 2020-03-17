@@ -2,57 +2,16 @@
  
  *simple, hp friendly VCV rack modules. download adsynth-VCV.zip and extract to VCV plugin lbrary*
  
-##### mult8
-
-	one input, eight outputs signal multiples
-	
-##### 2mult4
-		
-	dual audio & CV multiples
-	twice: one input - four outputs
-		
-##### Offset
-	
-	simple DC offset, range -10V - 10V
-	
-##### 5xVCA
-	
-	linear voltage controlled attenuator times five.
-	
-##### StereoVCA
-
-	quad voltage controlled attenuator
-	both channels are controlled by single CV signal
-	
-##### uPots
-	
-	passive linear attenuator. like, input -> potentiometer -> output.
-	
-##### VUvca
-	
-	WIP
-	dummy module, non functional
-
-##### logic
+ <img src="https://user-images.githubusercontent.com/35740399/76233859-21e41b80-6229-11ea-96d6-a0404652a499.png" alt="adsynth vcv plugins"> 
+ 
+## logic
 	
 	treshold parameter sets the treshold value for logic gates, in volts
 	inputs A and B goes into:
 	logic gates: and, nand, or, nor
 	max/min outputs respective voltage - suitable for audio/cv signals
 	
-##### miniLFO
-	
-	hp friendly low frequency oscillator with four simultaneous output waves: sine, triangle, pulse, sawtooth
-	pw - sets pulse width for pulse wave
-	polar - switches range from 0V - 10V to -5V - 5V
-
-##### miniOSC
-
-	hp friendly audio oscillator with four simultaneous output waves: sine, triangle, pulse, sawtooth
-	pwm - sets pulse width modulation for pulse wave
-	polar - switches range from 0V - 10V to -5V - 5V
-
-##### miniSeq
+## miniSeq
 		
 	8-step sequencer equipped with three CV-switchable modes: up, down, pendulum (up-down)
 	inputs:
@@ -69,22 +28,56 @@
 		gate - gate output
 
 
-##### filter
+## miniOSC
 
-	dummy module, non functional
+	hp friendly audio oscillator with four simultaneous output waves: sine, triangle, pulse, sawtooth
+	pwm - sets pulse width modulation for pulse wave
+	polar - switches range from 0V - 10V to -5V - 5V
 	
-##### stripmix
-
-	hp friendly signal merger, with two operating modes:
-	sum - simply adds the signals
-	avg - adds signals then divises the signal with value of used inputs
+## miniLFO
 	
-##### triggerburst
-
-	uhhhh that module build was just a IDE/SDK test but welp, peeps keep sayin that it comes in handy so its still here
-	outputs burst of triggers with given frequency, likewise: (f1 * cv1) + (f2 * cv2) + (f3 * cv3)
-	
-##### uEnv
+	hp friendly low frequency oscillator with four simultaneous output waves: sine, triangle, pulse, sawtooth
+	pw - sets pulse width for pulse wave
+	polar - switches range from 0V - 10V to -5V - 5V
+		
+## uEnv
 
 	simple hp friendly ADSR envelope generator.
 	exp/lin/log curves included.
+	
+## 2mult4
+		
+	dual audio & CV multiples
+	twice: one input - four outputs
+
+## mult8
+
+	one input, eight outputs signal multiples
+
+##### stripmix
+
+	hp friendly signal merger, with two operating modes:
+	sum - adds the signals
+	avg - adds signals then divises the signal with value of used inputs
+
+## uPots
+	
+	4xVCA in minimal hp environment
+
+## StereoVCA
+
+	quad voltage controlled attenuator
+	both channels are controlled by single CV signal
+	
+## 5xVCA
+	
+	linear voltage controlled attenuator times five.
+	less cramped layout than uPots.
+
+## Offset
+	
+	simple DC offset, range -10V - 10V
+	
+## ClockDiv
+
+	clock divider
