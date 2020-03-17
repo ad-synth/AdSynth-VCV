@@ -10,7 +10,7 @@ struct Adsynth_Mult8 : Module {
 		NUM_INPUTS
 	};
 	enum OutputIds {
-		ENUMS(OUT_OUTPUT, 16),
+		ENUMS(OUT_OUTPUT, 8),
 		NUM_OUTPUTS
 	};
 	enum LightIds {

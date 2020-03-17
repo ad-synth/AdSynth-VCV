@@ -5,3 +5,17 @@
 /plugin.dll
 .DS_Store
 /.vs
+/src/triggerburst.cpp
+/src/filter.cpp
+/src/VUvca.cpp
+/res/uPotsDIY.svg
+/res/uVCA.svg
+/res/Filter.svg
+/res/Miniseq workplate.svg
+/res/TriggerBurst.svg
+<<<<<<< HEAD
+/res/components/AdsynthVUmeter.svg
+/res/components/AdsynthVUtick.svg
+/res/components/AdsynthVUmask.svg
+=======
+>>>>>>> ad436f2bd050d0ef0cc21df604cc77fa118732ed
