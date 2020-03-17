@@ -49,14 +49,6 @@ struct Adsynth_ClockDiv : Module {
 		
 		//----------------
 
-		/*for (int i = 0; i < 8; i++)
-		{
-			if (index % (i + 1) == 0) {
-				output[index-1] = input * internalTrigger.process(args.sampleTime);
-			}
-			outputs[OUT_OUTPUT + i].setVoltage(output[i]);
-		}*/
-
 		for (int i = 0; i < 8; i++)
 		{	
 			output[i] = clamp(1-(index % (i + 1)), 0, 1) * input * internalTrigger.process(args.sampleTime);
@@ -80,8 +72,9 @@ struct Adsynth_ClockDivWidget : ModuleWidget {
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 17)), module, Adsynth_ClockDiv::IN_INPUT));
 
 		for (int i = 0; i < 8; i++) {
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 32 + 11*i)), module, Adsynth_ClockDiv::OUT_OUTPUT + i));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(3, 27 + 11 * i)), module, Adsynth_ClockDiv::ON_LIGHT + i));
+			int spacing = 11;
+			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 32 + spacing *i)), module, Adsynth_ClockDiv::OUT_OUTPUT + i));
+			addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(3, 27 + spacing * i)), module, Adsynth_ClockDiv::ON_LIGHT + i));
 		}
 	}
 };

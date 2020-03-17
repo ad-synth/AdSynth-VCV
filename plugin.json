@@ -8,23 +8,16 @@
   "authorEmail": "",
   "authorUrl": "",
   "pluginUrl": "",
-  "manualUrl": "",
-  "sourceUrl": "",
+  "manualUrl": "https://github.com/ad-synth/AdSynth-VCV/blob/master/README.md",
+  "sourceUrl": "https://github.com/ad-synth/AdSynth-VCV/",
   "donateUrl": "",
   "changelogUrl": "",
   "modules": [
-    {
-      "slug": "triggerburst",
-      "name": "Trigger Burst",
-      "description": "Generates triggers with fixed or CV modulated frequency x3, then outputs it sum",
-      "tags": [
-        "Clock generator"
-      ]
-    },
+
     {
       "slug": "Adsynth_Mult8",
       "name": "Mult8",
-      "description": "",
+      "description": "1 in, 8 out multiples",
       "tags": [
         "multiple",
         "utility"
@@ -33,7 +26,7 @@
     {
       "slug": "Adsynth_2mult4",
       "name": "2mult4",
-      "description": "",
+      "description": "two 1 in, 4 outs multiples",
       "tags": [
         "multiple",
         "utility"
@@ -42,7 +35,7 @@
     {
       "slug": "Adsynth_Logic",
       "name": "Logic",
-      "description": "",
+      "description": "Logic gates: OR, NOR, AND, NAND with variable treshold level, and Min/Max outs for CV signals",
       "tags": [
         "logic",
         "utility"
@@ -53,79 +46,76 @@
       "name": "5xVCA",
       "description": "5x linear VCA",
       "tags": [
-        "attenuator",
-        "vca"
+        "Voltage-controlled amplifier",
+        "Amplifier",
+        "VCA",
+        "Voltage controlled amplifier"
       ]
     },
     {
       "slug": "Adsynth_Miniseq",
       "name": "Miniseq",
-      "description": "8 step sequencer",
-      "tags": []
+      "description": "8 step sequencer with CV controllable gatelength and running mode",
+      "tags": [ "Sequencer" ]
     },
     {
       "slug": "Adsynth_Offset",
       "name": "Offset",
-      "description": "DC offset",
-      "tags": []
+      "description": "DC offset, range -10V to +10V",
+      "tags": [ "Utility" ]
     },
     {
       "slug": "Adsynth_Stripmix",
       "name": "Stripmix",
-      "description": "mixer",
-      "tags": []
+      "description": "Signal mixer or precision adder",
+      "tags": [ "Utility", "Mixer" ]
     },
     {
       "slug": "Adsynth_StereoVCA",
       "name": "Stereo VCA",
       "description": "4 x dual stereo linked VCA",
       "tags": [
-        "VCA"
+        "Voltage-controlled amplifier",
+        "Amplifier",
+        "VCA",
+        "Voltage controlled amplifier",
+        "dual"
       ]
     },
     {
       "slug": "Adsynth_MiniLFO",
       "name": "MiniLFO",
-      "description": "",
-      "tags": []
+      "description": "Simple LFO",
+      "tags": [ "Low-frequency oscillator", "LFO", "Low frequency oscillator" ]
     },
     {
       "slug": "Adsynth_MiniOSC",
       "name": "MiniOSC",
-      "description": "",
-      "tags": []
+      "description": "Digital style VCO featuring saw/tri/sin and HARSHaf\u2122 pulsewave with out-of-bounds PWM",
+      "tags": [ "Oscillator", "VCO", "Voltage controlled oscillator" ]
     },
     {
       "slug": "Adsynth_uPots",
       "name": "uPots",
-      "description": "2hp Attenuators",
+      "description": "2hp slim VCA x 4",
       "tags": [
-        "vca"
+        "Voltage-controlled amplifier",
+        "Amplifier",
+        "VCA",
+        "Voltage controlled amplifier"
       ]
     },
     {
       "slug": "Adsynth_uEnv",
       "name": "uEnv",
-      "description": "2hp envelope generator",
-      "tags": []
+      "description": "2hp envelope generator including log/lin/exp curves",
+      "tags": [ "Envelope generator" ]
     },
     {
       "slug": "Adsynth_ClockDiv",
       "name": "ClockDiv",
       "description": "Clock Divider",
-      "tags": []
-    },
-    {
-      "slug": "Adsynth_filter",
-      "name": "filter",
-      "description": "",
-      "tags": []
-    },
-    {
-      "slug": "Adsynth_VUvca",
-      "name": "VUvca",
-      "description": "",
-      "tags": []
+      "tags": [ "Clock modulator" ]
     }
   ]
 }

@@ -5,3 +5,11 @@
 /plugin.dll
 .DS_Store
 /.vs
+/src/triggerburst.cpp
+/src/filter.cpp
+/src/VUvca.cpp
+/res/uPotsDIY.svg
+/res/uVCA.svg
+/res/Filter.svg
+/res/Miniseq workplate.svg
+/res/TriggerBurst.svg

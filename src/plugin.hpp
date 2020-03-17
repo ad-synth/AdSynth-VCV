@@ -6,7 +6,6 @@ using namespace rack;
 
 extern Plugin* pluginInstance;
 
-extern Model* modelTriggerburst;
 extern Model* modelAdsynth_Mult8;
 extern Model* modelAdsynth_2mult4;
 extern Model* modelAdsynth_Logic;
@@ -19,8 +18,6 @@ extern Model* modelAdsynth_MiniLFO;
 extern Model* modelAdsynth_MiniOSC;
 extern Model* modelAdsynth_uPots;
 extern Model* modelAdsynth_uEnv;
-extern Model* modelAdsynth_filter;
-extern Model* modelAdsynth_VUvca;
 extern Model* modelAdsynth_ClockDiv;
 
 
