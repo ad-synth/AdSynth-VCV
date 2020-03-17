@@ -7,7 +7,6 @@ Plugin* pluginInstance;
 void init(Plugin* p) {
 	pluginInstance = p;
 
-	p->addModel(modelTriggerburst);
 	p->addModel(modelAdsynth_Mult8);
 	p->addModel(modelAdsynth_2mult4);
 	p->addModel(modelAdsynth_Stripmix);
@@ -20,7 +19,5 @@ void init(Plugin* p) {
 	p->addModel(modelAdsynth_MiniOSC);
 	p->addModel(modelAdsynth_uPots);
 	p->addModel(modelAdsynth_uEnv);
-	p->addModel(modelAdsynth_filter);
-	p->addModel(modelAdsynth_VUvca);
 	p->addModel(modelAdsynth_ClockDiv);
 }
