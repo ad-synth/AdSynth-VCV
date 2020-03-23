@@ -387,9 +387,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313708"
-     inkscape:cx="-21.112008"
-     inkscape:cy="293.51383"
+     inkscape:zoom="5.656854"
+     inkscape:cx="-14.520109"
+     inkscape:cy="419.24254"
      inkscape:document-units="mm"
      inkscape:current-layer="layer7"
      showgrid="false"
@@ -1356,12 +1356,12 @@
     </g>
     <g
        aria-label="uLFO"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.80000001;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.80000001;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#696969;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        id="text7753"
-       transform="translate(0,-114.92869)">
+       transform="translate(0.30401909,-114.92869)">
       <path
          d="m 2.0086974,123.326 c 0.0023,-0.008 0.00747,-0.0126 0.015503,-0.0138 0.0023,-0.001 0.0046,-0.002 0.00689,-0.002 0.00459,0 0.00861,0.002 0.012058,0.007 0.1056496,0.12058 0.2583822,0.18087 0.4581977,0.18087 0.1894803,0 0.336471,-0.054 0.4409722,-0.16192 0.1033529,-0.10795 0.1550293,-0.25723 0.1550293,-0.44786 v -1.33325 H 2.7011617 v 1.31774 c 0,0.0838 -0.031006,0.15101 -0.093018,0.20154 -0.058567,0.0471 -0.1303395,0.0706 -0.2153185,0.0706 -0.086127,0 -0.1579002,-0.0235 -0.2153184,-0.0706 -0.06316,-0.0505 -0.09474,-0.11771 -0.09474,-0.20154 v -1.31774 H 1.6865809 v 3.05235 h 0.2911106 z"
-         style="fill:#999999;fill-opacity:1;stroke-width:0.26458332"
+         style="fill:#696969;fill-opacity:1;stroke-width:0.26458332"
          id="path7755"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccscscsccscscsccccc" />
@@ -1469,7 +1469,7 @@
        aria-label="Env"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.80000001;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        id="text8011"
-       transform="translate(0,-114.94462)">
+       transform="translate(0.99688833,-114.94462)">
       <path
          d="m 3.2472092,122.60253 q -0.020671,0 -0.020671,0.0207 v 0.46854 q 0,0.0207 0.020671,0.0207 h 0.814765 v 0.33762 H 2.8096821 v -2.64239 h 1.2522921 v 0.33762 h -0.814765 q -0.020671,0 -0.020671,0.0207 v 1.07831 q 0,0.0207 0.020671,0.0207 H 3.982737 v 0.33762 z"
          style="fill:#f2f2f2;fill-opacity:1;stroke-width:0.26458332"

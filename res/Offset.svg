@@ -50,9 +50,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="64"
-     inkscape:cx="56.887367"
-     inkscape:cy="455.26729"
+     inkscape:zoom="2"
+     inkscape:cx="90.794785"
+     inkscape:cy="229.50525"
      inkscape:document-units="mm"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -209,13 +209,6 @@
        position="14.319999,22.799999"
        orientation="0,1"
        id="guide5330"
-       inkscape:locked="false"
-       inkscape:label=""
-       inkscape:color="rgb(0,0,255)" />
-    <sodipodi:guide
-       position="27.219009,17.799999"
-       orientation="0,1"
-       id="guide5332"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
@@ -467,11 +460,6 @@
          style="fill:#f2f2f2;fill-opacity:1;stroke-width:0.26458332"
          id="path4600"
          inkscape:connector-curvature="0" />
-      <path
-         d="m 21.227576,8.2249275 q 0.105076,0 0.179145,0.07407 0.07235,0.07407 0.07235,0.1774225 0,0.1033528 -0.07235,0.1774224 -0.07407,0.07407 -0.179145,0.07407 -0.103353,0 -0.177422,-0.07407 -0.07235,-0.07407 -0.07235,-0.1774224 0,-0.1033529 0.07235,-0.1774225 0.07407,-0.07407 0.177422,-0.07407 z"
-         style="fill:#f2f2f2;fill-opacity:1;stroke-width:0.26458332"
-         id="path4602"
-         inkscape:connector-curvature="0" />
     </g>
     <g
        aria-label="DC -/+"
@@ -513,12 +501,6 @@
        y="13.517484"
        rx="1.0000002"
        ry="1.0000006" />
-    <path
-       style="fill:none;stroke:#e09696;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 6,16.949765 0,2.750222 c 0,0 0,5.150009 9.24,5.00001 7.239046,-0.117516 7.24,-5.00001 7.24,-5.00001 v -1.908323"
-       id="path4619"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc" />
     <g
        aria-label="DC -/+"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.69999999;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -559,12 +541,6 @@
        y="35.078415"
        rx="1.0000002"
        ry="1.0000006" />
-    <path
-       style="fill:none;stroke:#852727;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 8.0000009,39.352597 v 1.908323 c 0,0 0,5.00001 7.2400001,5.00001 7.24,0 7.24,-5.00001 7.24,-5.00001 v -1.908323"
-       id="path4619-2"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc" />
     <g
        aria-label="DC -/+"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.69999999;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -605,12 +581,6 @@
        y="56.639351"
        rx="1.0000002"
        ry="1.0000006" />
-    <path
-       style="fill:none;stroke:#96e0db;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 8.0000009,60.91353 v 1.908323 c 0,0 0,5.00001 7.2400001,5.00001 7.24,0 7.24,-5.00001 7.24,-5.00001 V 60.91353"
-       id="path4619-20"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc" />
     <g
        aria-label="DC -/+"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.69999999;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -651,12 +621,6 @@
        y="78.200279"
        rx="1.0000002"
        ry="1.0000006" />
-    <path
-       style="fill:none;stroke:#247c76;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 8.0000009,82.474463 v 1.908323 c 0,0 0,5.00001 7.2400001,5.00001 7.24,0 7.24,-5.00001 7.24,-5.00001 v -1.908323"
-       id="path4619-28"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc" />
     <g
        aria-label="DC -/+"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:0.69999999;font-family:Steagisler;-inkscape-font-specification:Steagisler;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#666666;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -697,12 +661,6 @@
        y="99.761215"
        rx="1.0000002"
        ry="1.0000006" />
-    <path
-       style="fill:none;stroke:#bbbbbb;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="m 8.0000009,104.0354 v 1.90832 c 0,0 0,5.00001 7.2400001,5.00001 7.24,0 7.24,-5.00001 7.24,-5.00001 v -1.90832"
-       id="path4619-3"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc" />
     <g
        transform="translate(-18.582669,-92.297464)"
        aria-label="out"

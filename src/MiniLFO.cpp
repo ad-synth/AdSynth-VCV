@@ -6,6 +6,7 @@ struct Adsynth_MiniLFO : Module {
 		COARSE_PARAM,
 		PW_PARAM,
 		POLAR_PARAM,
+		INV_PARAM,
 		NUM_PARAMS
 	};
 	enum InputIds {
@@ -28,7 +29,8 @@ struct Adsynth_MiniLFO : Module {
 		config(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS);
 		configParam(COARSE_PARAM, 0.f, 10.f, 0.f, "Rate");
 		configParam(PW_PARAM, 0.f, 1.f, 0.5f, "Pulse width");
-		configParam(POLAR_PARAM, 0.f, 1.f, 0.f, "Polarity");
+		configParam(POLAR_PARAM, 0.f, 1.f, 0.f, "Bipolar");
+		configParam(INV_PARAM, 0.f, 1.f, 0.f, "Phase Invert");
 	}
 
 	struct LFO {
@@ -37,7 +39,8 @@ struct Adsynth_MiniLFO : Module {
 			amplitude = 0.f,
 			pulseWidth = 0.5f;
 
-		bool bipolar = true;
+		bool bipolar = true,
+			invert = false;
 				
 		
 		void setFrequency(float voltOct) {
@@ -47,8 +50,9 @@ struct Adsynth_MiniLFO : Module {
 		void setPulseWidth(float pw) {
 			pulseWidth = pw;
 		}
-		void setPolarity(float pol) {
+		void setPolarity(float pol, float inv) {
 			bipolar = pol;
+			invert = inv;
 		}
 		void resetCycle() {
 			phase = 0.f;
@@ -60,18 +64,21 @@ struct Adsynth_MiniLFO : Module {
 		float sine() {
 			float volt;
 			volt = 5.f * sin(2 * M_PI * phase);
+			if (invert) volt *= -1;
 			if (!bipolar) volt += 5.f;
 			return volt;
 		}
 		float saw() {
 			float volt;
 			volt = 5.f - 10*phase;
+			if (invert) volt *= -1;
 			if (!bipolar) volt += 5.f;
 			return volt;
 		}
 		float pulse() {
 			float volt;
 			(phase <= pulseWidth) ? volt = 5.f : volt = -5.f;
+			if (invert) volt *= -1;
 			if (!bipolar) volt += 5.f;
 			return volt;
 		}
@@ -81,6 +88,7 @@ struct Adsynth_MiniLFO : Module {
 			else if (phase > 0.25f && phase <= 0.75f) volt = 0.25f - (phase - 0.25f);
 			else volt = -0.25f + (phase - 0.75f);
 			volt *= 20;
+			if (invert) volt *= -1;
 			if (!bipolar) volt += 5.f;
 			return volt;
 		}
@@ -90,7 +98,7 @@ struct Adsynth_MiniLFO : Module {
 	dsp::SchmittTrigger resetInput;
 
 	void process(const ProcessArgs& args) override {
-		float sine, saw, squ, tri, 
+		float sine, saw, squ, tri,
 			reset = resetInput.process(inputs[RESET_INPUT].getVoltage()),
 			freq = params[COARSE_PARAM].getValue(),
 			pwm = params[PW_PARAM].getValue();
@@ -100,7 +108,7 @@ struct Adsynth_MiniLFO : Module {
 
 		oscillator.setFrequency(freq);
 		oscillator.setPulseWidth(pwm);
-		oscillator.setPolarity(params[POLAR_PARAM].getValue());
+		oscillator.setPolarity(params[POLAR_PARAM].getValue(), params[INV_PARAM].getValue());
 		oscillator.step(args.sampleTime);
 
 		sine = oscillator.sine();
@@ -124,9 +132,10 @@ struct Adsynth_MiniLFOWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		addParam(createParamCentered<AdsynthKnobSmallTeal>(mm2px(Vec(5.08, 18.5)), module, Adsynth_MiniLFO::COARSE_PARAM));
+		addParam(createParamCentered<AdsynthKnobSmallRed>(mm2px(Vec(5.08, 18.5)), module, Adsynth_MiniLFO::COARSE_PARAM));
 		addParam(createParamCentered<AdsynthTrimpot>(mm2px(Vec(5.08, 28.5)), module, Adsynth_MiniLFO::PW_PARAM));
-		addParam(createParamCentered<AdsynthButton>(mm2px(Vec(5.08, 36)), module, Adsynth_MiniLFO::POLAR_PARAM));
+		addParam(createParamCentered<AdsynthButton>(mm2px(Vec(2.98, 36)), module, Adsynth_MiniLFO::POLAR_PARAM));
+		addParam(createParamCentered<AdsynthButton>(mm2px(Vec(7.18, 36)), module, Adsynth_MiniLFO::INV_PARAM));
 
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 45.5)), module, Adsynth_MiniLFO::CV_INPUT));
 		addInput(createInputCentered<AdsynthJack>(mm2px(Vec(5.08, 57.5)), module, Adsynth_MiniLFO::RESET_INPUT));

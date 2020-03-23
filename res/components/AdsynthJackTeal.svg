@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="8.3556204mm"
-   height="8.3556299mm"
-   viewBox="0 0 8.3556203 8.3556298"
+   width="7.319952mm"
+   height="7.3199701mm"
+   viewBox="0 0 7.3199519 7.31997"
    version="1.1"
    id="svg15246"
    sodipodi:docname="AdsynthJackTeal.svg"
@@ -146,9 +146,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.2"
-     inkscape:cx="-44.360859"
-     inkscape:cy="14.018045"
+     inkscape:zoom="7.919596"
+     inkscape:cx="-25.565989"
+     inkscape:cy="5.6424425"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -170,12 +170,12 @@
      showguides="true"
      inkscape:guide-bbox="true">
     <sodipodi:guide
-       position="4.17781,4.1778148"
+       position="3.659976,3.6599849"
        orientation="1,0"
        inkscape:locked="false"
        id="guide4525" />
     <sodipodi:guide
-       position="4.1778085,4.1777948"
+       position="3.6599745,3.6599649"
        orientation="0,1"
        inkscape:locked="false"
        id="guide4527" />
@@ -188,7 +188,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -196,12 +196,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-88.611154,-119.19859)">
+     transform="translate(-89.128988,-119.71642)">
     <path
        inkscape:connector-curvature="0"
        id="path7255"
-       d="m 92.788964,127.42922 c -2.235179,0 -4.05281,-1.81762 -4.05281,-4.05282 0,-2.23516 1.817631,-4.05281 4.05281,-4.05281 2.235176,0 4.05281,1.81765 4.05281,4.05281 0,2.2352 -1.817634,4.05282 -4.05281,4.05282"
-       style="fill:#247c76;fill-opacity:1;fill-rule:nonzero;stroke:#96e0db;stroke-width:0.25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       d="m 92.788964,126.91139 c -1.949587,0 -3.534976,-1.58538 -3.534976,-3.53499 0,-1.94957 1.585389,-3.53498 3.534976,-3.53498 1.949584,0 3.534976,1.58541 3.534976,3.53498 0,1.94961 -1.585392,3.53499 -3.534976,3.53499"
+       style="fill:#96e0db;fill-opacity:1;fill-rule:nonzero;stroke:#247c76;stroke-width:0.24999999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        sodipodi:type="star"
        style="opacity:0.97000002;fill:#b3b3b3;fill-opacity:1;stroke:#636663;stroke-width:0.23885961;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"

@@ -74,7 +74,7 @@ struct Adsynth_ClockDivWidget : ModuleWidget {
 		for (int i = 0; i < 8; i++) {
 			int spacing = 11;
 			addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(5.08, 32 + spacing *i)), module, Adsynth_ClockDiv::OUT_OUTPUT + i));
-			addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(3, 27 + spacing * i)), module, Adsynth_ClockDiv::ON_LIGHT + i));
+			addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(3, 27 + spacing * i)), module, Adsynth_ClockDiv::ON_LIGHT + i));
 		}
 	}
 };

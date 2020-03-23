@@ -144,10 +144,8 @@ struct Adsynth_MiniOSCWidget : ModuleWidget {
 		setModule(module);
 		setPanel(APP->window->loadSvg(asset::plugin(pluginInstance, "res/MiniOSC.svg")));
 
-		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
-		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
 		addParam(createParamCentered<AdsynthKnobSmallTeal>(mm2px(Vec(10.16, 18.5)), module, Adsynth_MiniOSC::PWM_PARAM));
 		addParam(createParamCentered<AdsynthTrimpot>(mm2px(Vec(10.16, 29.679)), module, Adsynth_MiniOSC::FINE_PARAM));

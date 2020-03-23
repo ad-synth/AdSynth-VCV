@@ -91,24 +91,24 @@ struct Adsynth_LogicWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, 0)));
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		
-		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(15.24, 34)), module, Adsynth_Logic::TRESHOLD_PARAM));
+		addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(14, 26)), module, Adsynth_Logic::TRESHOLD_PARAM));
 
 		addInput(createInputCentered<AdsynthJackTeal>(mm2px(Vec(5.08, 18)), module, Adsynth_Logic::INA_INPUT));
-		addInput(createInputCentered<AdsynthJackRed>(mm2px(Vec(5.08, 28)), module, Adsynth_Logic::INB_INPUT));
+		addInput(createInputCentered<AdsynthJackRed>(mm2px(Vec(5.08, 34)), module, Adsynth_Logic::INB_INPUT));
 
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 48.5)), module, Adsynth_Logic::OR_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 60.5)), module, Adsynth_Logic::NOR_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 72.5)), module, Adsynth_Logic::AND_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 84.5)), module, Adsynth_Logic::NAND_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 97)), module, Adsynth_Logic::MAX_OUTPUT));
-		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(15.24, 109)), module, Adsynth_Logic::MIN_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(14, 48.5)), module, Adsynth_Logic::OR_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(14, 60.5)), module, Adsynth_Logic::NOR_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(14, 72.5)), module, Adsynth_Logic::AND_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(14, 84.5)), module, Adsynth_Logic::NAND_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(14, 97)), module, Adsynth_Logic::MAX_OUTPUT));
+		addOutput(createOutputCentered<AdsynthJack>(mm2px(Vec(14, 109)), module, Adsynth_Logic::MIN_OUTPUT));
 
-		addChild(createLightCentered<MediumLight<GreenLight>>(mm2px(Vec(6.0, 50.5)), module, Adsynth_Logic::LEDOR_LIGHT));
-		addChild(createLightCentered<MediumLight<GreenLight>>(mm2px(Vec(6.0, 62.5)), module, Adsynth_Logic::LEDNOR_LIGHT));
-		addChild(createLightCentered<MediumLight<GreenLight>>(mm2px(Vec(6.0, 74.5)), module, Adsynth_Logic::LEDAND_LIGHT));
-		addChild(createLightCentered<MediumLight<GreenLight>>(mm2px(Vec(6.0, 86.5)), module, Adsynth_Logic::LEDNAND_LIGHT));
-		addChild(createLightCentered<MediumLight<GreenLight>>(mm2px(Vec(6.0, 99)), module, Adsynth_Logic::LEDMAX_LIGHT));
-		addChild(createLightCentered<MediumLight<GreenLight>>(mm2px(Vec(6.0, 111)), module, Adsynth_Logic::LEDMIN_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(6.0, 50.5)), module, Adsynth_Logic::LEDOR_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(6.0, 62.5)), module, Adsynth_Logic::LEDNOR_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(6.0, 74.5)), module, Adsynth_Logic::LEDAND_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(6.0, 86.5)), module, Adsynth_Logic::LEDNAND_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(6.0, 99)), module, Adsynth_Logic::LEDMAX_LIGHT));
+		addChild(createLightCentered<MediumLight<RedLight>>(mm2px(Vec(6.0, 111)), module, Adsynth_Logic::LEDMIN_LIGHT));
 	}
 };
 

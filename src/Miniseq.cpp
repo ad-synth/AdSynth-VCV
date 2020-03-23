@@ -299,7 +299,7 @@ struct Adsynth_MiniseqWidget : ModuleWidget {
 			addParam(createParamCentered<AdsynthSmallKnob>(mm2px(Vec(17, 18 + i * mult)), module, Adsynth_Miniseq::KNOB_PARAM + i));
 			addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(8, 18 + i * mult)), module, Adsynth_Miniseq::SWITCH_PARAM + i));
 			addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(23, 16 + i * mult)), module, Adsynth_Miniseq::LED_LIGHT + i));
-			addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(23, 20 + i * mult)), module, Adsynth_Miniseq::ON_LIGHT + i));
+			addChild(createLightCentered<SmallLight<BlueLight>>(mm2px(Vec(23, 20 + i * mult)), module, Adsynth_Miniseq::ON_LIGHT + i));
 
 		}
 
@@ -308,9 +308,9 @@ struct Adsynth_MiniseqWidget : ModuleWidget {
 		addParam(createParamCentered<AdsynthKnobSmallTeal>(mm2px(Vec(32.8, 35)), module, Adsynth_Miniseq::GATE_PARAM));
 
 		addParam(createParamCentered<AdsynthSmallTriKnob>(mm2px(Vec(37, 70.5)), module, Adsynth_Miniseq::DIR_PARAM));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(32, 62.5)), module, Adsynth_Miniseq::MODE_LIGHT + 0));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(37, 59.5)), module, Adsynth_Miniseq::MODE_LIGHT + 1));
-		addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(42, 62.5)), module, Adsynth_Miniseq::MODE_LIGHT + 2));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(32, 62.5)), module, Adsynth_Miniseq::MODE_LIGHT + 0));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(37, 59.5)), module, Adsynth_Miniseq::MODE_LIGHT + 1));
+		addChild(createLightCentered<SmallLight<RedLight>>(mm2px(Vec(42, 62.5)), module, Adsynth_Miniseq::MODE_LIGHT + 2));
 
 		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(31.8, 82.5)), module, Adsynth_Miniseq::RUN_PARAM));
 		addParam(createParamCentered<AdsynthGreenSeqButton>(mm2px(Vec(42.8, 82.5)), module, Adsynth_Miniseq::LOOP_PARAM));

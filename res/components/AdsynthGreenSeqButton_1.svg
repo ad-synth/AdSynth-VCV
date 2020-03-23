@@ -76,8 +76,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.313709"
-     inkscape:cx="4.614101"
-     inkscape:cy="12.974447"
+     inkscape:cx="25.723715"
+     inkscape:cy="-0.8867173"
      inkscape:document-units="mm"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -85,9 +85,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="927"
-     inkscape:window-height="1041"
-     inkscape:window-x="922"
+     inkscape:window-width="1083"
+     inkscape:window-height="1057"
+     inkscape:window-x="766"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      units="mm"
@@ -146,7 +146,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -166,7 +166,7 @@
        rx="1"
        ry="1" />
     <rect
-       style="opacity:1;fill:#9ad542;fill-opacity:1;stroke:#c2fd6a;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       style="opacity:1;fill:#ee3e3e;fill-opacity:1;stroke:#ff7d7d;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect6120"
        width="3.7634392"
        height="3.7634392"
@@ -175,7 +175,7 @@
        rx="1"
        ry="1" />
     <circle
-       style="display:inline;opacity:1;fill:#c4e673;fill-opacity:1;stroke:none;stroke-width:0.20000002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       style="display:inline;opacity:1;fill:#ff7d7d;fill-opacity:1;stroke:none;stroke-width:0.20000002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path4511"
        cx="3.5190818"
        cy="-0.55778962"
