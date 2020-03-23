@@ -1,7 +1,7 @@
 # adsynth VCV 1.0.01b
 
  *simple, hp friendly VCV rack modules. download adsynth-1.0.0.zip and extract to VCV plugin lbrary*
- 
+
  <img src="https://user-images.githubusercontent.com/35740399/77367698-0154af00-6d5b-11ea-928e-bd25b7e7c082.png" alt="adsynth vcv plugins"> 
  
 ## logic
@@ -33,6 +33,10 @@ outputs:
 
 *clk* - passes on internal clock
 
+*CV*- sequence control voltage output
+
+*gate* - gate output
+
 *eoc* - sends trigger when cycle finishes 
 
 useful in creating longer than 8-step sequences with multiple instances of plugin:
@@ -40,10 +44,6 @@ useful in creating longer than 8-step sequences with multiple instances of plugi
 _example:_ both seq: loop off. seq1 eoc -> seq2 run & seq2 eoc -> seq1 run 
 
 _creates 16 step sequence when in up/down mode_
-
-*CV*- sequence control voltage output
-
-*gate* - gate output
 
 
 ## miniOSC
