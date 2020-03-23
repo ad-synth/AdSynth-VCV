@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # adsynth VCV 1.0.01b
 
  *simple, hp friendly VCV rack modules. download adsynth-1.0.0.zip and extract to VCV plugin lbrary*
+=======
+# adsynth VCV alpha
+
+ *simple, hp friendly VCV rack modules. download adsynth-VCV.zip and extract to VCV plugin lbrary*
+>>>>>>> 8d316315378305bcc7c4247cbd50523d60b6d304
  
  <img src="https://user-images.githubusercontent.com/35740399/77367698-0154af00-6d5b-11ea-928e-bd25b7e7c082.png" alt="adsynth vcv plugins"> 
  
