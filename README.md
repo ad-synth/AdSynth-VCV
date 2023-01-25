@@ -2,7 +2,7 @@
 
  *simple, hp friendly VCV rack modules. download adsynth-VCV.zip and extract to VCV plugin lbrary*
  
- <https://user-images.githubusercontent.com/35740399/214573598-885e8305-d919-4131-b527-97823de878c1.png" alt="adsynth vcv plugins"> 
+ <img src="https://user-images.githubusercontent.com/35740399/214573598-885e8305-d919-4131-b527-97823de878c1.png" alt="adsynth vcv plugins"> 
  
  note: all plugins work in VCV 1.1.4++ environment, but are NOT suitable for VCV2.0 operation.
  
